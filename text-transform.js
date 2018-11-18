@@ -61,6 +61,13 @@ Text_Transform.prototype.init = function () {
             this.decoded = this.element.html();
         }
 
+        // check if loop is set in settings
+        if (typeof this.settings.encode_delay !== typeof undefined) {
+            this.loop = this.settings.loop;
+        } else {
+            this.loop = false;
+        }
+
         // check if encode delay is set in settings
         if (typeof this.settings.encode_delay !== typeof undefined) {
             this.encode_delay = this.settings.encode_delay;
@@ -89,6 +96,8 @@ Text_Transform.prototype.init = function () {
             // get inner html of element
             this.decoded = this.element.html();
         }
+
+        this.loop = false;
     }
 
     // filling arrays
@@ -143,7 +152,7 @@ Text_Transform.prototype.encode = function () {
                     height = _this.element.height();
             }
             // show transformed string in html
-            $('#replace').html(encoded);
+            $('#replace').text(encoded);
             // scroll screen to old position with new element height
             if (_first_one) {
                 var newHeight = _this.element.height(),
@@ -187,18 +196,16 @@ Text_Transform.prototype.decode = function () {
             // transform array to string
             var decoded = _this.encoded_array.join('');
             // show transformed string in html
-            $('#replace').html(decoded);
+            $('#replace').text(decoded);
             // infinite loop until all indexes have been transformed
             if (_this.retransformed_indexes.length !== _this.decoded_array.length) {
                 _this.decode();
             } else {
-                if (typeof _this.settings.loop !== typeof undefined) {
-                    if (_this.settings.loop === true) {
-                        setTimeout(function () {
-                            _this.retransformed_indexes = [];
-                            _this.encode();
-                        }, _this.encode_delay)
-                    }
+                if (_this.loop === true) {
+                    setTimeout(function () {
+                        _this.retransformed_indexes = [];
+                        _this.encode();
+                    }, _this.encode_delay);
                 }
             }
         }, 100);

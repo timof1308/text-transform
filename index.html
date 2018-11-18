@@ -14,17 +14,18 @@
 </head>
 
 <body>
-<div class="content" style="min-height: 100vh;"></div>
+<div class="content" style="min-height: 100vh;">
+    <h6 class="light subtitle" id="replace2" tt-text="JavaScript to encode and decode text" tt-chars="0011 "></h6>
+</div>
 <div class="content">
     <div class="row text-center">
         <h1 class="title" id="replace"></h1>
-        <h6 class="light subtitle" id="replace2" tt-text="JavaScript to encode and decode text" tt-chars="0011 "></h6>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="text-transform.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         new Text_Transform('#replace', {
             text: "Text-Transform",
             chars: "@!§$%&\\/()=?+*#-_<>{}[]",
@@ -33,7 +34,11 @@
             decode_delay: 4000
         });
 
-        new Text_Transform('#replace2');
+        new Text_Transform('#replace2', {
+            text: "JavaScript to encode and decode text",
+            chars: "0011 ",
+            loop: true,
+        });
     });
 </script>
 </body>
