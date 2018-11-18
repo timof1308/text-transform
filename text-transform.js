@@ -1,5 +1,5 @@
 /*
- * Version 0.0.0
+ * Version 0.1.0
  * Author: Timo Fischer
  */
 
@@ -62,7 +62,7 @@ Text_Transform.prototype.init = function () {
         }
 
         // check if loop is set in settings
-        if (typeof this.settings.encode_delay !== typeof undefined) {
+        if (typeof this.settings.loop !== typeof undefined) {
             this.loop = this.settings.loop;
         } else {
             this.loop = false;
@@ -152,7 +152,7 @@ Text_Transform.prototype.encode = function () {
                     height = _this.element.height();
             }
             // show transformed string in html
-            $('#replace').text(encoded);
+            _this.element.text(encoded);
             // scroll screen to old position with new element height
             if (_first_one) {
                 var newHeight = _this.element.height(),
@@ -196,7 +196,7 @@ Text_Transform.prototype.decode = function () {
             // transform array to string
             var decoded = _this.encoded_array.join('');
             // show transformed string in html
-            $('#replace').text(decoded);
+            _this.element.text(decoded);
             // infinite loop until all indexes have been transformed
             if (_this.retransformed_indexes.length !== _this.decoded_array.length) {
                 _this.decode();
