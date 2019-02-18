@@ -1,6 +1,7 @@
 /*
- * Version 0.1.0
+ * Version 1.0.0
  * Author: Timo Fischer
+ * License: MIT
  */
 
 /**
@@ -108,7 +109,7 @@ Text_Transform.prototype.init = function () {
 
     var _this = this;
     var transformed = false;
-    $(window).on('resize scroll', function () {
+    $(window).on('load resize scroll', function () {
         if (_this.element.isInViewport() && !transformed) {
             transformed = true;
             setTimeout(function () {

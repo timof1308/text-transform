@@ -11,33 +11,52 @@
 
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 
 <body>
-<div class="content" style="min-height: 100vh;">
-    <h6 class="light subtitle" id="replace2" tt-text="JavaScript to encode and decode text" tt-chars="0011 "></h6>
-</div>
-<div class="content">
-    <div class="row text-center">
-        <h1 class="title" id="replace"></h1>
+
+<div class="header unselectable header-animated">
+    <div class="header-brand">
+        <div class="nav-item no-hover">
+            <h6 class="title">Text-Transform</h6>
+        </div>
+    </div>
+    <div class="header-nav" id="header-menu">
+        <div class="nav-right">
+            <div class="nav-item text-center">
+                <a href="https://github.com/timof1308/text-transform" target="_blank">
+                    <span class="icon">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
+
+<div class="content">
+    <div class="row text-center">
+        <h1 class="title" id="replace" tt-text="Text-Transform" tt-chars="0011 "></h1>
+    </div>
+</div>
+
+<div class="content">
+    <h6 class="light subtitle" id="replace2"></h6>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="text-transform.js"></script>
 <script>
     $(document).ready(function () {
-        new Text_Transform('#replace', {
-            text: "Text-Transform",
-            chars: "@!§$%&\\/()=?+*#-_<>{}[]",
-            //loop: true,
-            encode_delay: 10000,
-            decode_delay: 4000
-        });
+        new Text_Transform('#replace');
 
         new Text_Transform('#replace2', {
-            text: "JavaScript to encode and decode text",
-            chars: "0011 ",
+            text: "Text-Transform with extra options",
+            chars: "@!§$%&\\/()=?+*#-_<>{}[]",
             loop: true,
+            encode_delay: 10000,
+            decode_delay: 4000
         });
     });
 </script>
